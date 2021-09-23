@@ -6,7 +6,7 @@
 #    By: ikhadem <ikhadem@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/29 11:00:08 by ikhadem           #+#    #+#              #
-#    Updated: 2021/09/21 08:22:54 by ikhadem          ###   ########.fr        #
+#    Updated: 2021/09/23 10:32:28 by ikhadem          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRC :=	ft_putchar_fd.c \
 		ft_lststr_length.c \
 		ft_strchr.c \
 		ft_strdup.c \
+		ft_straddc.c \
 
 OBJ :=	$(SRC:.c=.o)
 

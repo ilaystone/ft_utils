@@ -6,7 +6,7 @@
 /*   By: ikhadem <ikhadem@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 14:58:56 by ikhadem           #+#    #+#             */
-/*   Updated: 2021/09/20 08:28:52 by ikhadem          ###   ########.fr       */
+/*   Updated: 2021/09/23 10:30:22 by ikhadem          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ t_str	*ft_lstnew(char *content);
 int		str_length(t_str *lst);
 int		ft_strchr(char *str, char c);
 int		get_next_line(char **line);
+char	*ft_straddc(char *str, char c);
 
 #endif
