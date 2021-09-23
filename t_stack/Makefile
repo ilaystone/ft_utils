@@ -6,9 +6,13 @@
 #    By: ikhadem <ikhadem@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/29 08:08:34 by ikhadem           #+#    #+#              #
-#    Updated: 2021/09/16 17:47:15 by ikhadem          ###   ########.fr        #
+#    Updated: 2021/09/23 12:56:13 by ikhadem          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+GREEN		=	\e[38;5;118m
+RESET		=	\e[0m
+_SUCCESS	=	[$(GREEN)SUCCESS$(RESET)]
 
 NAME := libstack.a
 
@@ -36,18 +40,21 @@ HDR = t_stack.h
 INCLUDE = -I.
 
 %.o : %.c $(HDR)
-	$(CC) $(FLAG) $(INCLUDE) -c $< -o $@
+	@$(CC) $(FLAG) $(INCLUDE) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
+	@printf "$(_SUCCESS) $(NAME) is ready!.\n"
 
 clean :
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
+	@printf "$(_SUCCESS) $(NAME)_objects removed!.\n"
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@printf "$(_SUCCESS) $(NAME)_lib removed!.\n"
 
 re : fclean all
 

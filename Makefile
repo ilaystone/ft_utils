@@ -6,9 +6,13 @@
 #    By: ikhadem <ikhadem@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/29 11:00:08 by ikhadem           #+#    #+#              #
-#    Updated: 2021/09/23 10:32:28 by ikhadem          ###   ########.fr        #
+#    Updated: 2021/09/23 12:54:31 by ikhadem          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+GREEN		=	\e[38;5;118m
+RESET		=	\e[0m
+_SUCCESS	=	[$(GREEN)SUCCESS$(RESET)]
 
 NAME := libutils.a
 
@@ -45,22 +49,25 @@ HDR = ft_utils.h
 INCLUDE = -I.
 
 %.o : %.c $(HDR)
-	$(CC) $(FLAG) $(INCLUDE) -c $< -o $@
+	@$(CC) $(FLAG) $(INCLUDE) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	make -C t_stack/
-	mv t_stack/libstack.a $(NAME)
-	ar rcs $(NAME) $(OBJ)
+	@make -C t_stack/
+	@mv t_stack/libstack.a $(NAME)
+	@ar rcs $(NAME) $(OBJ)
+	@printf "$(_SUCCESS) $(NAME) is ready!.\n"
 
 clean :
-	make clean -C t_stack/
-	rm -f $(OBJ)
+	@make clean -C t_stack/
+	@rm -f $(OBJ)
+	@printf "$(_SUCCESS) $(NAME)_objects removed!.\n"
 
 fclean : clean
-	make fclean -C t_stack/
-	rm -f $(NAME)
+	@make fclean -C t_stack/
+	@rm -f $(NAME)
+	@printf "$(_SUCCESS) $(NAME)_lib removed!.\n"
 
 re : fclean all
 
