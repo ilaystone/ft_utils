@@ -6,7 +6,7 @@
 #    By: ikhadem <ikhadem@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/29 11:00:08 by ikhadem           #+#    #+#              #
-#    Updated: 2021/09/23 12:54:31 by ikhadem          ###   ########.fr        #
+#    Updated: 2021/09/24 10:13:58 by ikhadem          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,18 +54,18 @@ INCLUDE = -I.
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	@make -C t_stack/
+	@cd t_stack/ && make
 	@mv t_stack/libstack.a $(NAME)
 	@ar rcs $(NAME) $(OBJ)
 	@printf "$(_SUCCESS) $(NAME) is ready!.\n"
 
 clean :
-	@make clean -C t_stack/
+	@cd ./t_stack/ && make clean
 	@rm -f $(OBJ)
 	@printf "$(_SUCCESS) $(NAME)_objects removed!.\n"
 
 fclean : clean
-	@make fclean -C t_stack/
+	@cd ./t_stack/ && make fclean
 	@rm -f $(NAME)
 	@printf "$(_SUCCESS) $(NAME)_lib removed!.\n"
 
