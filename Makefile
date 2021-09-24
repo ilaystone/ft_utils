@@ -6,7 +6,7 @@
 #    By: ikhadem <ikhadem@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/29 11:00:08 by ikhadem           #+#    #+#              #
-#    Updated: 2021/09/24 10:13:58 by ikhadem          ###   ########.fr        #
+#    Updated: 2021/09/24 10:16:42 by ikhadem          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,10 +64,10 @@ clean :
 	@rm -f $(OBJ)
 	@printf "$(_SUCCESS) $(NAME)_objects removed!.\n"
 
-fclean : clean
+fclean :
 	@cd ./t_stack/ && make fclean
-	@rm -f $(NAME)
-	@printf "$(_SUCCESS) $(NAME)_lib removed!.\n"
+	@rm -f $(NAME) $(OBJ)
+	@printf "$(_SUCCESS) $(NAME) removed!.\n"
 
 re : fclean all
 
